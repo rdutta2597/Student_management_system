@@ -59,8 +59,8 @@ def add_course_save(request):
 
 
 def add_student(request):
-    courses=Courses.objects.all()
-    return render(request, "hod_template/add_student_template.html",{"courses":courses})
+    courses = Courses.objects.all()
+    return render(request, "hod_template/add_student_template.html", {"courses": courses})
 
 
 def add_student_save(request):
@@ -84,17 +84,30 @@ def add_student_save(request):
                                                   first_name=first_name, user_type=3)
             user.students.address = address
             course_obj = Courses.objects.get(id=course_id)
-            user.students.course_id=course_obj
-            start_date = datetime.datetime.striptime(session_start,'%d-%m-%y').strftime('%Y-%m-%d')
-            end_date = datetime.datetime.striptime(session_end, '%d-%m-%y').strftime('%Y-%m-%d')
-            user.students.session_start_year=start_date
-            user.students.session_end_year = end_date
-            user.students.gender=sex
-            user.students.profile_pic=""
+            user.students.course_id = course_obj
+            user.students.session_start_year = session_start
+            user.students.session_end_year = session_end
+            user.students.gender = sex
+            user.students.profile_pic = ""
             user.save()
             messages.success(request, "Successfully added student")
             return HttpResponseRedirect("/add_student")
 
         except:
             messages.error(request, "Failed to add student")
-            return HttpResponseRedirect("/add_staff")
+            return HttpResponseRedirect("/add_student")
+
+def add_subject(request):
+    courses = Courses.objects.all()
+    staffs=CustomUser.objects.filter(user_type=2)
+    return render(request,"hod_template/add_subject_template.html",{"staffs":staffs,"courses":courses})
+
+def add_subject_save(request):
+    if request.method!="POST"
+        return HttpResponse("<h2>Method Not allowed</h2>")
+    else:
+        subject_name=request.POST.get("subject_name")
+        course_id=request.POST.get("course")
+        staff_id = request.POST.get("staff")
+        staff = CustomUser.objects.get(id=course_id)
+
