@@ -1,25 +1,12 @@
-{% extends 'hod_template/base_template.html' %}
-{% block page_title %}
-   College Notice Board
-{% endblock page_title%}
-{% block main_content %}
-
- <!-- Main content -->
-    <head>
-   {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" href="{% static "style.css"  %}" media="all" >
+		<link rel="stylesheet" type="text/css" href="style.css" media="all" />
 		<link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
-		<title>Cork board</title>
-<style>
-   body{
-     background: url("cork_board.gif");
-     }
-</style>
+		<title>Cork board</title>	
 	</head>
-
 	<body>
-
 		<div id='frame'>
 			<a class="note sticky1">
 				<div class='pin'></div>
@@ -57,19 +44,6 @@
 				<div class='pin'></div>
 				<div class='text'>Perferendis doloribus asperiores repella.</div>
 			</a>
-            <a class="note sticky1">
-				<div class='pin'></div>
-				<div class='text'>Itaque earum rerum hic tenetur a sapiente </div>
-			</a>
-			<a class="note sticky3">
-				<div class='pin'></div>
-				<div class='text'>Soluptatibus maiores.</div>
-			</a>
-			<a class="note sticky0">
-				<div class='pin'></div>
-				<div class='text'>Perferendis doloribus asperiores repella.</div>
-			</a>
 		</div>
 	</body>
-    <!-- /.content -->
-{% endblock main_content %}
+</html>

@@ -50,9 +50,17 @@ urlpatterns = [
                   path('edit_course_save', HodViews.edit_course_save, name="edit_course_save"),
                   path('manage_session', HodViews.manage_session, name="manage_session"),
                   path('add_session_save', HodViews.add_session_save, name="add_session_save"),
+                  path('student_leave_view', HodViews.student_leave_view, name="student_leave_view"),
+                  path('staff_leave_view', HodViews.staff_leave_view, name="staff_leave_view"),
+                  path('student_approve_leave/<str:leave_id>', HodViews.student_approve_leave,
+                       name="student_approve_leave"),
+                  path('student_disapprove_leave/<str:leave_id>', HodViews.student_disapprove_leave,
+                       name="student_disapprove_leave"),
+                  path('staff_disapprove_leave/<str:leave_id>', HodViews.staff_disapprove_leave,
+                       name="staff_disapprove_leave"),
+                  path('staff_approve_leave/<str:leave_id>', HodViews.staff_approve_leave, name="staff_approve_leave"),
                   #     Staff URL Path
                   path('staff_home', StaffViews.staff_home, name="staff_home"),
-                  path('student_home', StudentViews.student_home, name="student_home"),
                   path('staff_take_attendance', StaffViews.staff_take_attendance, name="staff_take_attendance"),
                   path('staff_update_attendance', StaffViews.staff_update_attendance, name="staff_update_attendance"),
                   path('get_students', StaffViews.get_students, name="get_students"),
@@ -66,5 +74,13 @@ urlpatterns = [
                   path('staff_feedback', StaffViews.staff_feedback, name="staff_feedback"),
                   path('staff_feedback_save', StaffViews.staff_feedback_save, name="staff_feedback_save"),
 
+                  # Student URl paths
+                  path('student_home', StudentViews.student_home, name="student_home"),
+                  path('student_view_attendance', StudentViews.student_view_attendance, name="student_view_attendance"),
+                  path('student_view_attendance_post', StudentViews.student_view_attendance_post,
+                       name="student_view_attendance_post"),
+                  path('student_apply_leave', StudentViews.student_apply_leave, name="student_apply_leave"),
+                  path('student_apply_leave_save', StudentViews.student_apply_leave_save,
+                       name="student_apply_leave_save"),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                                          document_root=settings.STATIC_ROOT)

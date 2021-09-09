@@ -5,7 +5,8 @@ from django.shortcuts import render
 from django.urls import reverse
 
 from Student_management_app.forms import AddStudentForm, EditStudentForm
-from Student_management_app.models import CustomUser, Staffs, Courses, Subjects, Students, SessionYearModel
+from Student_management_app.models import CustomUser, Staffs, Courses, Subjects, Students, SessionYearModel, \
+    LeaveReportStaff, LeaveReportStudent
 
 
 def admin_home(request):
@@ -258,7 +259,7 @@ def edit_student_save(request):
                 student.gender = sex
                 course = Courses.objects.get(id=course_id)
                 student.course_id = course
-                if profile_pic_url != None:
+                if profile_pic_url is not None:
                     student.profile_pic = profile_pic_url
                 student.save()
                 del request.session['student_id']
@@ -349,3 +350,48 @@ def add_session_save(request):
         except:
             messages.error(request, "Failed to Add Session")
             return HttpResponseRedirect(reverse("manage_session"))
+
+
+def staff_leave_view(request):
+    leaves = LeaveReportStaff.objects.all()
+    return render(request, "hod_template/staff_leave_view.html", {"leaves": leaves})
+
+
+def student_leave_view(request):
+    leaves = LeaveReportStudent.objects.all()
+    return render(request, "hod_template/student_leave_view.html", {"leaves": leaves})
+
+
+def student_approve_leave(request, leave_id):
+    leave = LeaveReportStudent.objects.get(id=leave_id)
+    leave.leave_status = 1
+    leave.save()
+    return HttpResponseRedirect(reverse("student_leave_view"))
+
+
+def student_disapprove_leave(request, leave_id):
+    leave = LeaveReportStudent.objects.get(id=leave_id)
+    leave.leave_status = 2
+    leave.save()
+    return HttpResponseRedirect(reverse("student_leave_view"))
+
+
+def staff_approve_leave(request, leave_id):
+    leave = LeaveReportStaff.objects.get(id=leave_id)
+    leave.leave_status = 1
+    leave.save()
+    return HttpResponseRedirect(reverse("staff_leave_view"))
+
+
+def staff_disapprove_leave(request, leave_id):
+    leave = LeaveReportStaff.objects.get(id=leave_id)
+    leave.leave_status = 2
+    leave.save()
+    return HttpResponseRedirect(reverse("staff_leave_view"))
+
+
+def admin_view_attendance(request):
+    subjects = Subjects.objects.all()
+    session_year_id = SessionYearModel.object.all()
+    return render(request, "hod_template/admin_view_attendance.html",
+                  {"subjects": subjects, "session_year_id": session_year_id})
