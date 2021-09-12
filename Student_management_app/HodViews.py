@@ -395,3 +395,5 @@ def admin_view_attendance(request):
     session_year_id = SessionYearModel.object.all()
     return render(request, "hod_template/admin_view_attendance.html",
                   {"subjects": subjects, "session_year_id": session_year_id})
+
+

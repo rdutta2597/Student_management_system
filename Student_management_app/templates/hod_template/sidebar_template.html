@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/admin_home" class="brand-link">
-      <img src="{%static "dist/img/dc.jpg" %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="{%static "dist/img/bmsit_logo.jpg" %}" alt="BMSIT Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">DiscipulusHub</span>
     </a>
@@ -121,24 +121,7 @@
               </p>
             </a>
           </li>
-           <li class="nav-item">
-            <a href="{% url 'add_staff' %}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Student Feedback
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
-           <li class="nav-item">
-            <a href="{% url 'add_staff' %}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Staff Feedback
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
+
            <li class="nav-item">
                {% url 'student_leave_view' as student_leave_view %}
             <a href="{% url 'student_leave_view' %}" class="nav-link {% if request.path == student_leave_view %} active {% endif %}">
@@ -157,6 +140,7 @@
               </p>
             </a>
           </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

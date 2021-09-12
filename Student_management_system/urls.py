@@ -59,6 +59,7 @@ urlpatterns = [
                   path('staff_disapprove_leave/<str:leave_id>', HodViews.staff_disapprove_leave,
                        name="staff_disapprove_leave"),
                   path('staff_approve_leave/<str:leave_id>', HodViews.staff_approve_leave, name="staff_approve_leave"),
+
                   #     Staff URL Path
                   path('staff_home', StaffViews.staff_home, name="staff_home"),
                   path('staff_take_attendance', StaffViews.staff_take_attendance, name="staff_take_attendance"),

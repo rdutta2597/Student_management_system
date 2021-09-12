@@ -1,20 +1,23 @@
-{% extends 'hod_template/base_template.html' %}
+{% extends 'staff_template/base_template.html' %}
 {% block page_title %}
-   Welcome {{ admin.first_name }}
-{% endblock page_title%}
+Welcome {{ user.first_name }}
+{% endblock page_title %}
 {% block main_content %}
-
- <!-- Main content -->
-    <head>
+    <!-- Main content -->
+   <head>
    {% load static %}
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="{% static "style.css"  %}" media="all" >
 		<link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
 		<title>Cork board</title>
-
+<style>
+   body{
+     background: url("cork_board.gif");
+     }
+</style>
 	</head>
 
-	<body id="bg" style="background-image: url('{% static cork_board.gif %}');">
+	<body>
 
 		<div id='frame'>
 			<a class="note sticky1">
@@ -69,3 +72,4 @@
 	</body>
     <!-- /.content -->
 {% endblock main_content %}
+

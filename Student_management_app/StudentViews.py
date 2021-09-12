@@ -61,3 +61,5 @@ def student_apply_leave_save(request):
         except:
             messages.error(request, "Failed To Apply for Leave")
             return HttpResponseRedirect(reverse("student_apply_leave"))
+
+
