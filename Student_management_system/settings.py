@@ -17,14 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-import re
-IGNORABLE_404_URLS = [
-        re.compile(r'^/apple-touch-icon.*\.png$'),
-        re.compile(r'^/favicon.ico$'),
-        re.compile(r'^/robots.txt$'),
-        re.compile(r'^/phpmyadmin/'),
-        re.compile(r'\.(cgi|php|pl)$'),
-    ]
+
 
 IGNORABLE_404_URLS = []
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -144,7 +137,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "Student_management_app.CustomUser"
 AUTHENTICATION_BACKENDS = ['Student_management_app.EmailBackEnd.EmailBackEnd']
 
-STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 import dj_database_url
-prod_db=dj_database_url.config(conn_max_age=500)
+
+prod_db = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
