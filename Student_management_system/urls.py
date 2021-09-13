@@ -83,5 +83,10 @@ urlpatterns = [
                   path('student_apply_leave', StudentViews.student_apply_leave, name="student_apply_leave"),
                   path('student_apply_leave_save', StudentViews.student_apply_leave_save,
                        name="student_apply_leave_save"),
+                  path('admin_view_attendance', HodViews.admin_view_attendance, name="admin_view_attendance"),
+                  path('admin_get_attendance_dates', HodViews.admin_get_attendance_dates,
+                       name="admin_get_attendance_dates"),
+                  path('admin_get_attendance_student', HodViews.admin_get_attendance_student,
+                       name="admin_get_attendance_student")
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
                                                                                          document_root=settings.STATIC_ROOT)
