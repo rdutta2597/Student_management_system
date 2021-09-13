@@ -17,7 +17,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+import re
+IGNORABLE_404_URLS = [
+        re.compile(r'^/apple-touch-icon.*\.png$'),
+        re.compile(r'^/favicon.ico$'),
+        re.compile(r'^/robots.txt$'),
+        re.compile(r'^/phpmyadmin/'),
+        re.compile(r'\.(cgi|php|pl)$'),
+    ]
 
+IGNORABLE_404_URLS = []
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-koxahm9f*+&(jj-r4r7a9i-!&x9h^^368)p-z8s@05gu#-z5f6'
 
