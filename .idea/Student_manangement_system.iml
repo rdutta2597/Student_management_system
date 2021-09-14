@@ -14,10 +14,18 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/django_env/Lib" />
-      <excludeFolder url="file://$MODULE_DIR$/django_env/Scripts" />
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/.idea" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Rubbish" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Student_management_app" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Student_management_app/templates/staff_template" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Student_management_app/templates/student_template" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Student_management_system" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/media" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/static" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/templates" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.9" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.9 (Student_management_system)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">

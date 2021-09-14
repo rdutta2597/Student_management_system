@@ -1,6 +1,7 @@
+import json
+
 from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
-from django.core.serializers import json
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
